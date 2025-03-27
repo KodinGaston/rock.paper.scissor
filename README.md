@@ -81,3 +81,5 @@ English
 
 ### koding@duck.com ☺
 
+The website is here: *https://kodingaston.github.io/rock.paper.scissor*
+
