@@ -75,7 +75,7 @@ a:hover {
   color: #535bf2;
 }
 /********************************************/
-/* 5. IMAGEN                                */
+/* IMAGEN                                */
 /********************************************/
 .game-image {
     display: flex;
@@ -94,7 +94,7 @@ a:hover {
   justify-content: center;
 }
 /********************************************/
-/* 6. Buttons                            */
+/* Buttons                            */
 /********************************************/
 .buttons {
   display: flex;
@@ -155,7 +155,7 @@ a:hover {
   color:#e30dce;  
 }
 /********************************************/
-/* 8. CHOICES                               */
+/* CHOICES                               */
 /********************************************/
 .choices {
   display: flex;
@@ -189,7 +189,7 @@ a:hover {
 }
 
 /********************************************/
-/* 9. REGLAS                                */
+/* REGLAS                                */
 /********************************************/
 
 #rules {
@@ -206,36 +206,55 @@ a:hover {
     border-radius: 30px;
     border: 15px solid darkred;
     box-sizing: border-box;
-    p {
+     p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     text-align: left;
   }
   }
+   
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
 
   .popup-content {
     padding: 20px;
     margin: 20px;
-    height: 100%;
     border-radius: 20px;
     border-color: #4CAF50;
     background-color: #00f7ff;
+    width: 100%;
+    max-width: 90%;
+    box-sizing: border-box;
   }
   .popup-content img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     align-items: center;
+    border: 2px solid #da2a07;
     border-radius: 20px;
-    border-color: #da2a07;
     padding: 0;
     margin: 0;     
   }
   .popup-content p {
     font-size: 20px;
-    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
   }
   /********************************************/
-  /* 10. FOOTER                               */
+  /* FOOTER                               */
   /********************************************/
 
   .copyright {   
