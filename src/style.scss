@@ -1,0 +1,262 @@
+@use "sass:color";
+/*@use 'SCSS/mobile';
+@use 'SCSS/tablet';
+I changed It all mobil-first design*/
+
+$primary-color: #147c9e;
+$secondary-color: #da2a07;
+$terciary-color: #ded703;
+$button-color: #3498DB;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html 
+body {
+  height: 100%;
+  min-height: 50vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: $terciary-color;
+  color: $terciary-color;
+}
+.content {  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0.1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: color.adjust($primary-color, $lightness: 20%);
+}
+h2 {
+  font-size: 1.25rempx;
+  color: color.adjust($secondary-color, $lightness: 10%);
+}
+h3 {
+  font-size: 1.1rem;
+  color: color.adjust($secondary-color, $lightness: 5%);
+}
+p {
+  font-size: 0.8rem;
+  color: color.adjust($secondary-color, $lightness: 1%);
+}
+h1, h2, h3, .scoreboard, .choices, .buttons, #start-btn, #restart-btn {
+  border: 4px solid #da2a07;  
+  background-color: #147c9e;  
+  color: white;  
+  padding: 1rem;  
+  border-radius: 10px;   
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); 
+  margin-bottom: 1rem;
+  text-align: center;
+}
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+/********************************************/
+/* 5. IMAGEN                                */
+/********************************************/
+.game-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 10px 0;
+    border: 15px solid $button-color;
+    border-radius: 25px;
+}
+.dragon {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/********************************************/
+/* 6. Buttons                            */
+/********************************************/
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: fit-content;
+}
+#start-btn,
+#restart-btn {
+  background-color: $button-color;
+  color: #f2fa01;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttons button:hover {
+  box-shadow: 0 0 8px rgba(0, 102, 255, 0.5);
+}
+
+/********************************************/
+/* Game interface                           */
+/********************************************/
+.hidden {
+  display: none;
+}
+
+.scoreboard {
+  font-weight: bolder;
+  display: flex;
+   flex-direction: row;       
+   align-items: center;
+   justify-content: space-around;
+   margin:  0;
+   margin-bottom: 1rem;
+   padding: 0;
+   height: auto;
+   width: 100%;
+   background: color.adjust($primary-color, $lightness: 10%);
+   border-radius: 30px;
+   border: 15px solid darkred;
+   box-sizing: border-box;      
+}
+
+.player, .vs, .computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0px;
+  margin: 0px;
+  color:#e30dce;  
+}
+/********************************************/
+/* 8. CHOICES                               */
+/********************************************/
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.choices button {
+    font-size: 2rem;   
+    margin: 10px;
+    cursor: pointer;
+    background-color: #e30dce;
+    border-radius: 30px;
+}
+.choices :hover {
+  box-shadow: 0 0 15px rgb(255, 0, 234), 0 0 25px rgba(236, 245, 0, 0.7);
+}
+#close-popup {
+  background-color: #e30dce;  
+  color: rgb(255, 255, 255); 
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+#close-popup:hover {
+  background-color: #45a049;  
+}
+
+/********************************************/
+/* 9. REGLAS                                */
+/********************************************/
+
+#rules {
+   font-weight: bolder;
+   display: flex;
+    flex-direction: column;        
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 20px;
+    height: 0 auto;
+    width: 100%;
+    background: color.adjust($primary-color, $lightness: 10%);
+    border-radius: 30px;
+    border: 15px solid darkred;
+    box-sizing: border-box;
+    p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  }
+
+  .popup-content {
+    padding: 20px;
+    margin: 20px;
+    height: 100%;
+    border-radius: 20px;
+    border-color: #4CAF50;
+    background-color: #00f7ff;
+  }
+  .popup-content img {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    border-radius: 20px;
+    border-color: #da2a07;
+    padding: 0;
+    margin: 0;     
+  }
+  .popup-content p {
+    font-size: 20px;
+    align-items: center;
+  }
+  /********************************************/
+  /* 10. FOOTER                               */
+  /********************************************/
+
+  .copyright {   
+  text-align: center;
+  font-weight: bold;
+  background-color: color.adjust($primary-color, $lightness: 10%);
+  color: rgb(212, 255, 0);
+  margin: 0;  
+  bottom: 0;
+  width: 100%;
+  padding: 0; 
+  font-size: 1rem;
+  }
+
+  .footer {    
+    position:sticky;
+    width: 100%;   
+    background-color: color.adjust($primary-color, $lightness: 10%);
+    color: rgb(212, 255, 0);
+    margin: 0;
+    padding: 1rem;
+    border-radius: 30px;
+    border: 5px solid #da2a07;  
+  }
