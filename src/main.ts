@@ -54,13 +54,6 @@ function determineWinner(player: string, computer: string) {
   checkForWinner();
 }
 function checkForWinner() {
-  // Si lo estás publicando en GitHub Pages en la URL:
-  //   https://kodingaston.github.io/rock.paper.scissor/
-  // entonces las imágenes se sirven en:
-  //   https://kodingaston.github.io/rock.paper.scissor/winner.webp
-  //   https://kodingaston.github.io/rock.paper.scissor/loser.webp
-  //
-  // Por eso fijamos la ruta base así:
   const basePath = "https://kodingaston.github.io/rock.paper.scissor";
 
   if (playerScore === 3) {
