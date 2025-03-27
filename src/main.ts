@@ -53,16 +53,24 @@ function determineWinner(player: string, computer: string) {
 
   checkForWinner();
 }
-
 function checkForWinner() {
-  // Detecta la URL base automáticamente
-  const basePath = window.location.origin + "/rock.paper.scissor"; 
+  // Si lo estás publicando en GitHub Pages en la URL:
+  //   https://kodingaston.github.io/rock.paper.scissor/
+  // entonces las imágenes se sirven en:
+  //   https://kodingaston.github.io/rock.paper.scissor/winner.webp
+  //   https://kodingaston.github.io/rock.paper.scissor/loser.webp
+  //
+  // Por eso fijamos la ruta base así:
+  const basePath = "https://kodingaston.github.io/rock.paper.scissor";
 
   if (playerScore === 3) {
     showPopup("You did it! You won the game!", `${basePath}/winner.webp`);
     resetGame();
   } else if (computerScore === 3) {
-    showPopup("Ups... no... I am so sorry, you lose the game. Make your revenge and play again! :)", `${basePath}/loser.webp`);
+    showPopup(
+      "Ups... no... I am so sorry, you lose the game. Make your revenge and play again! :)",
+      `${basePath}/loser.webp`
+    );
     resetGame();
   }
 }
