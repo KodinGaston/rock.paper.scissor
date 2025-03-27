@@ -55,16 +55,14 @@ function determineWinner(player: string, computer: string) {
 }
 
 function checkForWinner() {
-  // This will detect the proyect base automatically
-  const basePath = window.location.pathname.includes("fed-js-intro-rock-paper-scissors-sweet-bananas") 
-    ? "/fed-js-intro-rock-paper-scissors-sweet-bananas/"
-    : "/";
+  // Detecta la URL base automáticamente
+  const basePath = window.location.origin + "/rock.paper.scissor"; 
 
   if (playerScore === 3) {
-    showPopup("You did it! You won the game!", `${basePath}winner.webp`);
+    showPopup("You did it! You won the game!", `${basePath}/winner.webp`);
     resetGame();
   } else if (computerScore === 3) {
-    showPopup("Ups... no... I am so sorry, you lose the game. Make your revenge and play again! :)", `${basePath}loser.webp`);
+    showPopup("Ups... no... I am so sorry, you lose the game. Make your revenge and play again! :)", `${basePath}/loser.webp`);
     resetGame();
   }
 }
