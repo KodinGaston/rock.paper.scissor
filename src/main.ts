@@ -4,19 +4,18 @@ const startBtn = document.getElementById("start-btn") as HTMLButtonElement;
 const restartBtn = document.getElementById("restart-btn") as HTMLButtonElement;
 const gameInterface = document.getElementById("game-interface") as HTMLElement;
 const playerScoreElement = document.getElementById("player-score") as HTMLElement;
-
 const computerScoreElement = document.getElementById("computer-score") as HTMLElement;
+
 const choices = [
   { name: "rock", beats: "scissors" },
   { name: "paper", beats: "rock" },
-  { name: "scissors", beats: "paper" },  
+  { name: "scissors", beats: "paper" },
 ];
 
 let playerScore = 0;
 let computerScore = 0;
 
 startBtn.addEventListener("click", () => {
-  
   gameInterface.classList.remove("hidden");
 });
 
@@ -32,27 +31,54 @@ document.querySelectorAll(".choice").forEach((button) => {
   });
 });
 
+/**
+ * Reemplaza el alert nativo por un modal custom.
+ */
+function showCustomAlert(message: string) {
+  // Crear el contenedor principal de la alerta
+  const alertDiv = document.createElement("div");
+  alertDiv.className = "custom-alert";
+
+  // Contenido interno de la alerta
+  alertDiv.innerHTML = `
+    <div class="custom-alert-content">
+      <p>${message}</p>
+      <button id="close-custom-alert">OK</button>
+    </div>
+  `;
+
+  // Insertar en el body
+  document.body.appendChild(alertDiv);
+
+  // Manejar el cierre
+  const closeButton = document.getElementById("close-custom-alert") as HTMLButtonElement;
+  closeButton.addEventListener("click", () => {
+    alertDiv.remove();
+  });
+}
+
 function determineWinner(player: string, computer: string) {
   const playerChoice = choices.find((choice) => choice.name === player);
   const computerChoice = choices.find((choice) => choice.name === computer);
 
   if (player === computer) {
-    alert("It's a draw!");
+    showCustomAlert("It's a draw!");
     return;
   }
 
   if (playerChoice && computerChoice && playerChoice.beats === computer) {
     playerScore++;
     playerScoreElement.textContent = playerScore.toString();
-    alert("You win!");
+    showCustomAlert("You win!");
   } else {
     computerScore++;
     computerScoreElement.textContent = computerScore.toString();
-    alert("Computer wins!");
+    showCustomAlert("Computer wins!");
   }
 
   checkForWinner();
 }
+
 function checkForWinner() {
   const basePath = "https://kodingaston.github.io/rock.paper.scissor";
 
