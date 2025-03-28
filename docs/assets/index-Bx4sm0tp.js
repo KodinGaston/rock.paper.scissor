@@ -1,0 +1,12 @@
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))c(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const l of r.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&c(l)}).observe(document,{childList:!0,subtree:!0});function n(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function c(e){if(e.ep)return;e.ep=!0;const r=n(e);fetch(e.href,r)}})();const h=document.getElementById("start-btn"),y=document.getElementById("restart-btn"),p=document.getElementById("game-interface"),f=document.getElementById("player-score"),g=document.getElementById("computer-score"),s=[{name:"rock",beats:"scissors"},{name:"paper",beats:"rock"},{name:"scissors",beats:"paper"}];let i=0,a=0;h.addEventListener("click",()=>{p.classList.remove("hidden")});y.addEventListener("click",()=>{u()});document.querySelectorAll(".choice").forEach(o=>{o.addEventListener("click",t=>{const n=t.target.id,c=s[Math.floor(Math.random()*s.length)].name;b(n,c)})});function d(o){const t=document.createElement("div");t.className="custom-alert",t.innerHTML=`
+    <div class="custom-alert-content">
+      <p>${o}</p>
+      <button id="close-custom-alert">OK</button>
+    </div>
+  `,document.body.appendChild(t),document.getElementById("close-custom-alert").addEventListener("click",()=>{t.remove()})}function b(o,t){const n=s.find(e=>e.name===o),c=s.find(e=>e.name===t);if(o===t){d("It's a draw!");return}n&&c&&n.beats===t?(i++,f.textContent=i.toString(),d("You win!")):(a++,g.textContent=a.toString(),d("Computer wins!")),v()}function v(){const o="https://kodingaston.github.io/rock.paper.scissor";i===3?(m("You did it! You won the game!",`${o}/winner.webp`),u()):a===3&&(m("Ups... no... I am so sorry, you lose the game. Make your revenge and play again! :)",`${o}/loser.webp`),u())}function m(o,t){const n=document.createElement("div");n.className="popup",n.innerHTML=`
+    <div class="popup-content">
+      <img src="${t}" alt="Result Image"/>
+      <p>${o}</p>
+      <button id="close-popup">Close</button>
+    </div>
+  `,document.body.appendChild(n),document.getElementById("close-popup").addEventListener("click",()=>{n.remove()})}function u(){i=0,a=0,f.textContent="0",g.textContent="0",p.classList.add("hidden")}
